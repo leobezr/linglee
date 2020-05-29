@@ -1,24 +1,2 @@
-# frontend
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Linglee
+This is a testing project, the name, idea, and layout, was copied from a project found at Dribbble made by (Aga Ciurysek )[https://dribbble.com/agaciurysek]
