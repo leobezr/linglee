@@ -135,7 +135,7 @@ export default {
         credential: ""
       },
       showCreationFeedback: false,
-      step: 1
+      step: 0
     };
   },
   methods: {
