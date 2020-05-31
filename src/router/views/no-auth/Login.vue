@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <div class="loginContainer">
+    <div :class="done ? 'loginContainer done' : 'loginContainer'">
       <div class="gridBox leftContainer">
         <div :class="registerStarted ? 'startedSteps true' : 'startedSteps false'">
           <div class="gridHeader">
@@ -37,14 +37,14 @@
             <!-- Cards -->
             <div class="boxes">
               <CardBox
-                :action="() => changeStep(1)"
+                :action="() => changeStep(2)"
                 title="Ja tenho conta"
                 icon="mdi-login"
                 orientation="box"
                 content="Clique aqui para entrar"
               />
               <CardBox
-                :action="() => changeStep(2)"
+                :action="() => changeStep(1)"
                 title="Criar conta"
                 icon="mdi-account-plus"
                 orientation="box"
@@ -56,12 +56,12 @@
         <!--  -->
         <!-- Register -->
         <div v-else-if="registerStarted && creatingAccount" class="register">
-          <Register :cancelProcess="cancel" :sendLogin="sendLogin"/>
+          <Register :cancelProcess="cancel" :sendLogin="sendLogin" />
         </div>
         <!--  -->
         <!-- Login -->
         <div v-else>
-          <Credential />
+          <Credential :back="createAccount" :assignDone="assignDone" />
         </div>
       </div>
     </div>
@@ -93,20 +93,27 @@ export default {
   },
   data() {
     return {
+      done: false,
       hasAccount: false,
       step: 0,
-      showToolTip: false,
+      showToolTip: false
     };
   },
   methods: {
-    cancel(){
+    assignDone() {
+      this.done = true;
+    },
+    cancel() {
       this.step = 0;
     },
     changeStep(step) {
       step = step || 0;
       this.step = step;
     },
-    sendLogin(){
+    createAccount() {
+      this.step = 1;
+    },
+    sendLogin() {
       this.step = 2;
     }
   }
