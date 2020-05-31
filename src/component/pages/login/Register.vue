@@ -46,7 +46,6 @@
             <v-text-field
               label="Cargo"
               autocomplete="job"
-              :rules="rules.mandatory"
               v-model="persona.job"
               placeholder="Ex: estudante, designer, programador, rh"
               @keydown.native.enter="register"
@@ -150,6 +149,9 @@ export default {
         item = "";
       }
     },
+    done(){
+      setTimeout(() => this.sendLogin(), 800);
+    },
     startLoading(state) {
       this.loading = state;
     },
@@ -165,7 +167,7 @@ export default {
           this.createUserAccount({ ...this.credential }).then(() => {
             this.showCreationFeedback = true;
             this.creationRequest = "Criado com sucesso!";
-            setTimeout(this.sendLogin, 1000);
+            this.done();
           });
         }
       }
