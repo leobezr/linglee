@@ -13,5 +13,12 @@ export default new Vuex.Store({
   state: {},
   getters: {},
   mutations: {},
-  actions: {},
+  actions: {
+    async login(){
+      return new Promise(resolve => {
+        setTimeout(() => resolve({status: 200}), 500)
+        ;
+      })
+    }
+  },
 });
