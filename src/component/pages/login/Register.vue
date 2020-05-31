@@ -85,6 +85,7 @@
     <!--  -->
     <!-- Form Controller -->
     <div class="controller mt-5">
+      <v-btn color="error" text @click="cancelProcess">Cancelar</v-btn>
       <v-btn color="primary" @click="register" :loading="loading">Confirmar</v-btn>
     </div>
     <!--  -->
@@ -140,6 +141,15 @@ export default {
   },
   methods: {
     ...mapActions(["createUserAccount"]),
+    cancel() {
+      this.clean();
+      this.cancelProcess();
+    },
+    clean() {
+      for (let item in this.persona) {
+        item = "";
+      }
+    },
     startLoading(state) {
       this.loading = state;
     },
@@ -148,20 +158,21 @@ export default {
         if (this.$refs.register.validate()) {
           this.step = 1;
         }
-        return
+        return;
       } else {
         if (this.$refs.credential.validate()) {
           this.startLoading(true);
           this.createUserAccount({ ...this.credential }).then(() => {
             this.showCreationFeedback = true;
             this.creationRequest = "Criado com sucesso!";
-            setTimeout(this.sendLogin(), 500);
+            setTimeout(this.sendLogin, 1000);
           });
         }
       }
     }
   },
   props: {
+    cancelProcess: { type: Function },
     sendLogin: { type: Function }
   }
 };
