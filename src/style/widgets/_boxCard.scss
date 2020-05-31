@@ -1,0 +1,30 @@
+@import "@/style/variables.scss";
+
+#boxCard {
+    display: flex;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    box-shadow: 0 0 6px -4px #222;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+
+    .wrap {
+        padding: 15px 14px;
+    }
+    &.boxContainer {
+        max-width: 200px;
+        height: 200px;
+
+        .theIcon {
+            border-radius: 8px;
+            border: solid 1px $lightPrimary;
+            padding: 12px;
+            display: inline-block;
+        }
+    }
+}

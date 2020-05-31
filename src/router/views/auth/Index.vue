@@ -12,6 +12,7 @@ export default {
   },
   methods: {
     sendTo(page) {
+      if (this.$route.name == page) return
       this.$router.push({ name: page });
     }
   },

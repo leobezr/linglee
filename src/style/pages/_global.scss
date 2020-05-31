@@ -1,0 +1,35 @@
+@import "@/style/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700&display=swap");
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    background: $background;
+    letter-spacing: 0.035em;
+
+    .theme--light.v-application {
+        background: $background $i;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 400;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: "Source Sans Pro", sans-serif;
+    }
+}
