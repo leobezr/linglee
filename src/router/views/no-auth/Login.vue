@@ -4,7 +4,7 @@
       <div class="gridBox leftContainer">
         <div :class="registerStarted ? 'startedSteps true' : 'startedSteps false'">
           <div class="gridHeader">
-            <h2>Lingiee.</h2>
+            <h2>Linglee.</h2>
           </div>
           <div class="gridBodyContent">
             <h1
@@ -53,16 +53,16 @@
             </div>
           </div>
         </div>
-
         <!--  -->
         <!-- Register -->
         <div v-else-if="registerStarted && creatingAccount" class="register">
-          <Register :sendLogin="sendLogin"/>
+          <Register :cancelProcess="cancel" :sendLogin="sendLogin"/>
         </div>
-
         <!--  -->
         <!-- Login -->
-        <div v-else></div>
+        <div v-else>
+          <Credential />
+        </div>
       </div>
     </div>
   </div>
@@ -71,6 +71,7 @@
 <script>
 // Components
 import CardBox from "@/component/widget/BoxCard.vue";
+import Credential from "@/component/pages/login/Credential.vue";
 import Register from "@/component/pages/login/Register.vue";
 // Style
 import "@/style/pages/_login.scss";
@@ -87,6 +88,7 @@ export default {
   },
   components: {
     CardBox,
+    Credential,
     Register
   },
   data() {
@@ -97,12 +99,14 @@ export default {
     };
   },
   methods: {
+    cancel(){
+      this.step = 0;
+    },
     changeStep(step) {
       step = step || 0;
       this.step = step;
     },
     sendLogin(){
-      this.step = 1;
       this.step = 2;
     }
   }
