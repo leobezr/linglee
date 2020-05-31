@@ -11,7 +11,8 @@ export default {
     this.sendTo(this.$route.meta.next);
   },
   methods: {
-    sendTo(page) {
+    sendTo(page) {debugger
+      if (this.$route.name == page) return
       this.$router.push({ name: page });
     }
   },

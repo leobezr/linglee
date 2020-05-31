@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div id="noAuth">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+// Style
+import "@/style/pages/_noAuth.scss";
+
 export default {
   name: "NoAuth",
   created() {
@@ -12,6 +15,7 @@ export default {
   },
   methods: {
     sendTo(page) {
+      if (this.$route.name == page) return
       this.$router.push({ name: page });
     }
   },
